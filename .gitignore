@@ -1,0 +1,76 @@
+# ==================================
+# 1. 빌드 및 컴파일 결과물 (핵심)
+# ==================================
+
+# C/C++ 오브젝트 및 실행 파일
+*.o
+*.out
+*.a
+*.so
+a.out
+*.exe
+*.dll
+*.lib
+
+# Java/Kotlin 컴파일 결과물
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar
+*.gz
+/bin/
+/build/
+
+# Python 컴파일 결과물 및 가상 환경
+*.pyc
+__pycache__/
+venv/
+.venv/
+
+
+# ==================================
+# 2. IDE 별 설정 파일 무시
+# ==================================
+
+# Microsoft Visual Studio / Visual Studio Code
+.vs/
+.vscode/
+*.vcxproj
+*.sln
+*.suo
+*.user
+*.ncb
+*.opensdf
+*.sdf
+*.ipch
+
+# JetBrains IDEs (IntelliJ, PyCharm, WebStorm 등)
+.idea/
+
+# Eclipse IDE
+.classpath
+.project
+.settings/
+*.log
+
+# XCode (macOS 개발 환경)
+*.pbxuser
+*.xcuserdatad
+
+
+# ==================================
+# 3. 운영체제 및 기타 파일 무시
+# ==================================
+
+# macOS 시스템 파일
+.DS_Store
+
+# Windows 시스템 파일
+Thumbs.db
+
+# 로그 및 임시 파일
+*.log
+*.tmp
+temp/
