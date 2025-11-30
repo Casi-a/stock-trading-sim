@@ -12,6 +12,5 @@ struct Order {
     double price;        // 체결 가격
     std::string date;    // 체결 일시
 
-    Order(std::string sym, bool buy, int qty, double p, std::string d)
-        : symbol(sym), isBuy(buy), quantity(qty), price(p), date(d) {}
+    Order(std::string sym, bool buy, int qty, double p, std::string d);
 };
