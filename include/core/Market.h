@@ -1,31 +1,35 @@
 #pragma once
+#include "Instrument.h"
 #include <vector>
 #include <string>
-#include "../model/Instrument.h"
 
-/**
- * Class: Market
- * 전체 종목 데이터를 관리하고 시세를 변동시킵니다.
- */
+// 주식 시장 시뮬레이터 클래스
 class Market {
 private:
-    std::vector<Instrument*> instruments; // 모든 상장 종목 리스트
+    std::vector<Instrument*> instruments;  // 모든 종목 리스트
+
+    // 특정 심볼이 이미 리스트에 있는지 확인
+    bool checkSymbol(const std::string& symbol) const;
 
 public:
-    ~Market(); // 소멸자에서 Instrument 객체들 delete
+    // 생성자
+    Market() = default;
 
-    // 하드코딩된 종목(Spot, Future) 데이터 생성 및 초기화
-    void init(); 
+    // 소멸자: 동적 할당된 Instrument 객체들 해제
+    ~Market();
 
-    // 매 틱마다 모든 종목의 updatePrice() 호출
-    void tick(); 
+    // 종목 추가
+    void addInstrument(Instrument* inst);
 
-    // 종목 코드로 객체 검색 (없으면 nullptr)
-    Instrument* findSymbol(std::string sym);
-    
-    // ETF 생성 시 시장 리스트에 등록
-    void addInstrument(Instrument* inst) { instruments.push_back(inst); }
-    
-    // instruments 리스트 getter
-    const std::vector<Instrument*>& getAllInstruments() const { return instruments; }
+    // 모든 종목 반환 (읽기 전용)
+    const std::vector<Instrument*>& getAll() const;
+
+    // 심볼로 종목 검색
+    Instrument* findBySymbol(const std::string& symbol) const;
+
+    // 시간 흐름에 따른 가격 변동 처리
+    void tick();
+
+    // 변동률 상위 n개 종목 반환
+    std::vector<Instrument*> getTopMovers(int n) const;
 };
