@@ -1,30 +1,23 @@
 #pragma once
-#include "../core/Application.h"
-#include <cstdlib>
 
-/**
- * Class: Screen
- * 모든 화면의 부모 클래스입니다.
- */
+// 전방 선언
+class Application;
+
+// 모든 화면의 추상 베이스 클래스
 class Screen {
 protected:
-    Application* app; // 앱 기능 사용을 위한 포인터
+    Application* app;  // Application 객체 포인터
+
+    // 화면 클리어 (선택적 사용)
+    void clear();
 
 public:
-    Screen(Application* application) : app(application) {}
-    virtual ~Screen() {}
+    // 생성자
+    Screen(Application* application);
 
-    /**
-     * [Abstract Function]
-     * 화면을 그리고 입력을 처리하는 로직을 구현해야 합니다.
-     */
+    // 가상 소멸자
+    virtual ~Screen() = default;
+
+    // 순수 가상 함수: 각 화면마다 구현 필요
     virtual void show() = 0;
-    
-    void clear() { 
-        #ifdef _WIN32
-            system("cls");
-        #else
-            system("clear");
-        #endif
-    }
 };
