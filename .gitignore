@@ -9,6 +9,8 @@
 a.out
 main
 stock_trading_sim
+stock
+CMakeLists
 
 # 디버그 파일
 *.dSYM/

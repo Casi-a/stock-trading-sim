@@ -1,4 +1,4 @@
-// ============================================================================
+﻿// ============================================================================
 // Stock Trading Simulator - Single File Version
 // B팀 구현 (2025년 12월)
 // 팀원: 김다인, 김진광, 신바다(팀장), 이호준, 임찬형, 정승아
@@ -62,7 +62,7 @@ public:
 #else
         local = *localtime(&t);
 #endif
-        char buf[9];
+        char buf[12];
         strftime(buf, sizeof(buf), "%H:%M:%S", &local);
         return string(buf);
     }
@@ -79,7 +79,7 @@ public:
         local = *localtime(&t);
 #endif
         char buf[11];
-        strftime(buf, sizeof(buf), "%y-%m-%d", &local);
+        strftime(buf, sizeof(buf), "%Y-%m-%d", &local);
         return string(buf);
     }
 };
