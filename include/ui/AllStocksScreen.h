@@ -1,14 +1,12 @@
 #pragma once
 #include "Screen.h"
 
-/**
- * Class: AllStocksScreen
- * Market에 존재하는 모든 종목(Instrument)의 목록을 조회하는 화면입니다.
- * - 종목코드, 종목명, 현재가, (선택: 등락률) 등을 표 형태로 출력합니다.
- */
+// 전체 종목 조회 화면
+// 담당: 신바다
 class AllStocksScreen : public Screen {
 public:
     AllStocksScreen(Application* app) : Screen(app) {}
 
+    // 전체 종목 리스트 출력
     virtual void show() override;
 };
