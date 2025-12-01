@@ -1,44 +1,41 @@
 #pragma once
+#include "Market.h"
+#include "Account.h"
+#include "OrderManager.h"
+#include "RiskManager.h"
+#include "Screen.h"
 
-// 전방 선언 (Forward Declaration)으로 순환 참조 방지
-class Screen;
-class Market;
-class Account;
-class OrderManager;
-
-/**
- * Class: Application
- * 프로그램의 메인 컨트롤러.
- */
+// 메인 애플리케이션 클래스
 class Application {
 private:
-    bool isRunning;          // 프로그램 실행 상태 플래그
-    
-    // Core Managers (소유권)
-    Market* market;
-    Account* account;
-    OrderManager* orderManager;
+    Market market;              // 시장 데이터 관리
+    Account account;            // 사용자 계좌 관리
+    OrderManager orderManager;  // 매수/매도 주문 관리
+    RiskManager riskManager;    // 리스크 관리
+    Screen* currentScreen;      // 현재 화면
+    bool running;               // 메인 루프 실행 여부
 
-    // Current View
-    Screen* currentScreen;   // 현재 보여지는 화면
+    // 초기 종목 데이터 로드
+    void initInstruments();
 
 public:
+    // 생성자
     Application();
+
+    // 소멸자
     ~Application();
 
-    /**
-     * 메인 루프
-     * while(isRunning) 동안 시간흐름 -> 시세변동 -> 리스크체크 -> 화면출력 반복
-     */
+    // Getter
+    Market& getMarket();
+    Account& getAccount();
+    OrderManager& getOrderManager();
+
+    // 메인 루프
     void run();
 
-    // 화면 교체
-    void changeScreen(Screen* newScreen);
-    
-    void exit() { isRunning = false; }
+    // 화면 전환
+    void changeScreen(Screen* next);
 
-    // Getters
-    Market* getMarket() const { return market; }
-    Account* getAccount() const { return account; }
-    OrderManager* getOrderManager() const { return orderManager; }
+    // 프로그램 종료
+    void exit();
 };
