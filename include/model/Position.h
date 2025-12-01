@@ -1,27 +1,25 @@
 #pragma once
 #include "Instrument.h"
 
-/**
- * Class: Position
- * 계좌가 보유하고 있는 특정 종목의 상태(수량, 평단가)를 나타냅니다.
- */
+// 특정 종목의 보유 내역을 나타내는 클래스
 class Position {
 private:
-    Instrument* instrument; // 어떤 종목인지 포인터로 참조
-    int quantity;           // 보유 수량
-    double avgPrice;        // 평균 매입 단가
+    Instrument* instrument;  // 보유 종목 포인터
+    int quantity;            // 보유 수량
+    double avgPrice;         // 평균 매입가
 
 public:
-    Position(Instrument* inst, int qty, double price)
-        : instrument(inst), quantity(qty), avgPrice(price) {}
+    // 생성자
+    Position(Instrument* inst, int qty, double price);
 
-    Instrument* getInstrument() const { return instrument; }
-    int getQuantity() const { return quantity; }
-    double getAvgPrice() const { return avgPrice; }
+    // Getter
+    Instrument* getInstrument() const;
+    int getQuantity() const;
+    double getAvgPrice() const;
 
-    // 추가 매수 시 수량 증가 및 평단가 재계산
+    // 수량 추가 및 평단가 재계산 (물타기)
     void addQuantity(int qty, double currentPrice);
 
-    // 매도 시 수량 감소
+    // 수량 감소 (부분 매도)
     void removeQuantity(int qty);
 };
