@@ -78,7 +78,7 @@ stock-trading-sim/
 │   ├── Team A 클래스 기획서.pdf
 │   ├── Tema A UML 다이어그램 및 시퀀스 다이어그램.pdf
 │   └── Term Project.pdf
-├── include/                 # 헤더 파일 (개발용, 40개 파일)
+├── include/                 # 헤더 파일 (개발용)
 │   ├── core/               # 핵심 비즈니스 로직
 │   │   ├── Account.h / Application.h / Market.h
 │   │   ├── OrderManager.h / RiskManager.h
@@ -92,8 +92,14 @@ stock-trading-sim/
 │   │   ├── TradeScreen.h / CustomETFScreen.h
 │   └── util/               # 유틸리티
 │       ├── TimeUtil.h / RandomUtil.h
+├── src/                     # 구현 파일 (개발용)
+│   ├── main.cpp            # 모듈화 버전 메인
+│   ├── core/               # 핵심 비즈니스 로직 구현
+│   ├── model/              # 데이터 모델 구현
+│   ├── ui/                 # UI 구현
+│   └── util/               # 유틸리티 구현
 ├── A_TEAM_SPEC_REVIEW.md   # A팀 설계 분석 문서
-├── main.cpp                # 최종 제출용 단일 파일 (병합 완료)
+├── main.cpp                # 최종 제출용 단일 파일 (1114줄)
 └── readme.md
 ```
 
@@ -190,10 +196,15 @@ stock-trading-sim/
    - 인코딩 문제 수정 완료
    - CustomETFScreen 완전 구현 완료
 4. **Phase 4:** 단일 main.cpp 병합 완료 ✅
-   - 총 1100줄 단일 파일
+   - 총 1114줄 단일 파일
    - 컴파일 테스트 완료
    - 모든 기능 작동 확인
-5. **최종:** 제출 및 발표 준비 중 🔄 (12/9)
+5. **Phase 5:** 프로젝트 구조 정리 완료 ✅ (12/2)
+   - include/의 .cpp 파일들을 src/로 이동
+   - 중복 파일 17개 정리
+   - 파일명 통일 (CustomETFScreen)
+   - 불필요한 CMakeLists.txt 제거
+6. **최종:** 제출 및 발표 준비 중 🔄 (12/9)
 
 ## 📚 참고자료
 - 과목명: 객체지향프로그래밍
