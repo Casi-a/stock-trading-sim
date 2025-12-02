@@ -10,7 +10,6 @@ a.out
 main
 stock_trading_sim
 stock
-CMakeLists
 
 # 디버그 파일
 *.dSYM/
@@ -23,6 +22,7 @@ CMakeLists
 *.swp
 *.swo
 *~
+.claude/
 
 # 시스템 파일
 .DS_Store
