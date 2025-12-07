@@ -51,17 +51,6 @@
 - `TimeUtil` - 현재 시간 포맷팅
 - `RandomUtil` - 가격 변동률 생성
 
-## 👥 팀원별 담당
-
-| 팀원 | 담당 부분 |
-|------|----------|
-| 김다인 | Application, Market, Instrument, SpotStock, FutureContract, TimeUtil, RandomUtil |
-| 김진광 | Account, OrderManager, RiskManager, Position, Order, CustomETF |
-| 신바다 | AllStocksScreen, Screen 베이스 클래스 |
-| 이호준 | MainScreen, HoldingsScreen |
-| 임찬형 | CustomETFScreen |
-| 정승아 | TradeScreen |
-
 ## 📁 프로젝트 구조
 
 ```
@@ -98,7 +87,7 @@ stock-trading-sim/
 │   ├── model/              # 데이터 모델 구현
 │   ├── ui/                 # UI 구현
 │   └── util/               # 유틸리티 구현
-├── A_TEAM_SPEC_REVIEW.md   # A팀 설계 분석 문서
+├── PPT_CONTENT.md          # 발표 PPT 내용
 ├── main.cpp                # 최종 제출용 단일 파일 (1114줄)
 └── readme.md
 ```
@@ -184,26 +173,9 @@ stock-trading-sim/
 
 1. **Phase 1:** A팀이 설계 명세서 작성 ✅
 2. **Phase 2:** B팀이 명세서 기반으로 구현 ✅
-   - 김다인: 7개 클래스 완료 ✅
-   - 김진광: 6개 클래스 완료 ✅
-   - 이호준: 2개 화면 완료 ✅
-   - 정승아: 1개 화면 완료 ✅
-   - 임찬형: 1개 화면 완료 ✅
-   - 신바다: Screen.h, AllStocksScreen 완료 ✅
 3. **Phase 3:** 코드 통합 및 헤더 분리 완료 ✅
-   - 총 40개 파일 (헤더 20개 + 구현 19개 + main 1개)
-   - A팀 명세 누락 메서드 9개 구현 완료
-   - 인코딩 문제 수정 완료
-   - CustomETFScreen 완전 구현 완료
-4. **Phase 4:** 단일 main.cpp 병합 완료 ✅
-   - 총 1114줄 단일 파일
-   - 컴파일 테스트 완료
-   - 모든 기능 작동 확인
-5. **Phase 5:** 프로젝트 구조 정리 완료 ✅ (12/2)
-   - include/의 .cpp 파일들을 src/로 이동
-   - 중복 파일 17개 정리
-   - 파일명 통일 (CustomETFScreen)
-   - 불필요한 CMakeLists.txt 제거
+4. **Phase 4:** 단일 main.cpp 병합 완료 ✅ (1114줄)
+5. **Phase 5:** 프로젝트 구조 정리 완료 ✅
 6. **최종:** 제출 및 발표 준비 중 🔄 (12/9)
 
 ## 📚 참고자료
@@ -211,7 +183,7 @@ stock-trading-sim/
 - 설계: A팀
 - 구현: B팀
 - 명세서 교환: A → B → C → D → E → F → A
-- **A팀 설계 분석:** [A_TEAM_SPEC_REVIEW.md](./A_TEAM_SPEC_REVIEW.md)
+- **발표 PPT 내용:** [PPT_CONTENT.md](./PPT_CONTENT.md)
 - **UML/시퀀스 다이어그램:** [docs/diagrams/](./docs/diagrams/)
 
 ## 🛠️ 빌드 방법
