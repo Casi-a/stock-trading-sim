@@ -29,10 +29,14 @@ const std::string& FutureContract::getExpiryDate() const {
 }
 
 // 기초 자산 가격 변동에 따라 선물 가격 재계산
+// 변동률에 레버리지를 적용하여 선물 본래 목적(적은 금액으로 큰 수익률)을 구현
 void FutureContract::recalcPrice() {
     if (!underlying) return;
 
-    double newPrice = underlying->getPrice() * leverage;
+    double oldPrice = getPrice();
+    double changeRate = underlying->getChangeRate();
+
+    double newPrice = oldPrice * (1.0 + (changeRate / 100.0) * leverage);
     updatePrice(newPrice);
 }
 
