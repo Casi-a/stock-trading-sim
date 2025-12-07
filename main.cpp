@@ -171,7 +171,11 @@ public:
 
     void recalcPrice() override {
         if (!underlying) return;
-        double newPrice = underlying->getPrice() * leverage;
+
+        double oldPrice = getPrice();
+        double changeRate = underlying->getChangeRate();
+
+        double newPrice = oldPrice * (1.0 + (changeRate / 100.0) * leverage);
         updatePrice(newPrice);
     }
 
@@ -1061,11 +1065,9 @@ void MainScreen::show() {
         break;
     }
 }
-
 // ============================================================================
 // 9. APPLICATION IMPLEMENTATION
 // ============================================================================
-
 Application::Application()
     : market(), account(1000000.0), orderManager(), riskManager(),
       currentScreen(nullptr), running(true)
@@ -1097,11 +1099,9 @@ void Application::changeScreen(Screen* next) {
     }
     currentScreen = next;
 }
-
 // ============================================================================
 // 10. MAIN FUNCTION
 // ============================================================================
-
 int main() {
     cout << "=== Stock Trading Simulator ===" << endl;
     cout << "프로그램을 시작합니다..." << endl << endl;
